@@ -71,6 +71,6 @@ transformers==4.30.2
 typing_extensions==4.6.3
 tzdata==2023.3
 urllib3==1.26.16
-Werkzeug==2.3.6
+Werkzeug==3.0.0
 wrapt==1.14.1
 xxhash==3.2.0
