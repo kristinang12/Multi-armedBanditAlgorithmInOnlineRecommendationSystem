@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Learning Material Recommendation</title>
+</head>
+<body>
+    <h1>Learning Material Recommendation System</h1>
+    <form method="POST" action="/">
+        <label for="search_query">Search for Learning Materials:</label>
+        <input type="text" id="search_query" name="search_query">
+        <button type="submit">Search</button>
+    </form>
+    <div>
+        <h1>Search results for: </h1>
+        <ul>
+            {% for lm_result in search_results %}
+            <li><a href="/click_resultquery/{{ lm_result }}">{{ lm_result }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div>
+        <ul>
+            <h2>Recommended Learning Materials:</h2>
+    
+            {% for lm_title in recommended_lm_titles %}
+            <li><a href="/click_lm/{{ lm_title }}">{{ lm_title }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+
+</body>
+
+</html>

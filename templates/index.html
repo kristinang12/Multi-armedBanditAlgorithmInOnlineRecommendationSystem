@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Learning Material Recommendation</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header class="navbar">
+        <div class="navbar-brand">
+            LMRS
+        </div>
+        <div class="sidebar">
+            <a href="/">Home</a>
+        </div>
+    </header>
+
+    <main class="cont">
+        <section class="sq">
+            <h1>Learning Material Recommendation System</h1>
+            <form id="searchForm" method="POST" action="/">
+                <label for="search_query">Search for Learning Materials:</label>
+                <br>
+                <input type="text" id="search_query" name="search_query" class="my-input" placeholder="search" aria-label="Search input">
+                <button type="submit">Search</button>
+            </form>
+        </section>
+        <section id="search" class="sr">
+            
+            {% if show_results_label %}
+            <h2>Search Result:</h2>
+            {% endif %}
+            {% if no_results_message %}
+            <p>{{ no_results_message }}</p>
+            {% endif %}
+            
+            <ul>
+                {% for lm_result in search_recommendation %}
+                <li><a href="/click_resultquery/{{ lm_result }}" aria-label="Search result">{{ lm_result }}</a></li>
+                {% endfor %}
+            </ul>
+        </section>
+        
+        <section class="rl" id="recommendations">
+            <h2>Recommended Learning Materials:</h2>
+            <ul>
+                {% for lm_title in recommended_lm_titles %}
+                <li><a href="/click_lm/{{ lm_title }}" aria-label="Recommended learning material" class="recommended-lm">{{ lm_title }}</a></li>
+                {% endfor %}
+            </ul>
+        </section>
+        
+    </main>
+
+    <script>
+        document.querySelectorAll(".recommended-lm").forEach(function(link) {
+            link.addEventListener("click", function(event) {
+                // Log the clicked learning material
+                console.log("Clicked on: " + event.target.textContent);
+                // Perform other actions if needed
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Learning Material Description</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+<body>
+    <div class="navbar">
+        <div class="navbar-brand"> <!-- Remove the <a> tag from here -->
+            LMRS <!-- Move the text outside of the <a> tag -->
+        </div>
+        <div class="sidebar">
+            <a href="/">Home</a>
+        </div>
+    </div>
+
+    <div class="cont">
+
+        <h1>Learning Material Description</h1>
+        <p >{{ description }}</p>
+        <a href="/">Back to Home</a>
+        
+    </div>
+</body>
+</html>
