@@ -216,5 +216,6 @@ def click_lm(lm_title):
     return render_template('material.html', description=description)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, port=5000)
+
 
